@@ -1,7 +1,3 @@
-// ui.js
-// Displays the drag-and-drop UI
-// --------------------------------------------------
-
 import { useState, useRef, useCallback } from 'react';
 import ReactFlow, { Controls, Background, MiniMap } from 'reactflow';
 import { useStore } from './store';
@@ -10,16 +6,27 @@ import { InputNode } from './nodes/inputNode';
 import { LLMNode } from './nodes/llmNode';
 import { OutputNode } from './nodes/outputNode';
 import { TextNode } from './nodes/textNode';
+import { FilterNode } from './nodes/filterNode';
+import { ApiNode } from './nodes/apiNode';
+import { TimerNode } from './nodes/timerNode';
+import { MathNode } from './nodes/mathNode';
+import { LoggerNode } from './nodes/loggerNode';
 
 import 'reactflow/dist/style.css';
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
+
 const nodeTypes = {
   customInput: InputNode,
   llm: LLMNode,
   customOutput: OutputNode,
   text: TextNode,
+  filter: FilterNode,
+  api: ApiNode,
+  timer: TimerNode,
+  math: MathNode,
+  logger: LoggerNode,
 };
 
 const selector = (state) => ({
@@ -46,9 +53,8 @@ export const PipelineUI = () => {
     } = useStore(selector, shallow);
 
     const getInitNodeData = (nodeID, type) => {
-      let nodeData = { id: nodeID, nodeType: `${type}` };
-      return nodeData;
-    }
+      return { id: nodeID, nodeType: `${type}` };
+    };
 
     const onDrop = useCallback(
         (event) => {
@@ -59,10 +65,7 @@ export const PipelineUI = () => {
             const appData = JSON.parse(event.dataTransfer.getData('application/reactflow'));
             const type = appData?.nodeType;
       
-            // check if the dropped element is valid
-            if (typeof type === 'undefined' || !type) {
-              return;
-            }
+            if (typeof type === 'undefined' || !type) return;
       
             const position = reactFlowInstance.project({
               x: event.clientX - reactFlowBounds.left,
