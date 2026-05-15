@@ -38,36 +38,31 @@
   }
 }
 
-/* ── Apple-style gradient (liquid glass) card ── */
 .glass-card {
-  /* Liquid Glass / visionOS Material */
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
   backdrop-filter: blur(40px) saturate(200%);
   -webkit-backdrop-filter: blur(40px) saturate(200%);
   position: relative;
   border: none;
-  
-  /* Simulate physical thickness, refraction, and specular lighting */
   box-shadow: 
-    inset 0 1px 1px rgba(255, 255, 255, 0.15), /* Top edge specular highlight */
-    inset 0 -1px 1px rgba(0, 0, 0, 0.3),       /* Bottom edge refraction/thickness */
-    0 25px 50px -12px rgba(0, 0, 0, 0.6);      /* Deep ambient drop shadow */
+    inset 0 1px 1px rgba(255, 255, 255, 0.15),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.3),
+    0 25px 50px -12px rgba(0, 0, 0, 0.6);
 }
 
-/* Two-point metallic gradient border: bright top-left AND bottom-right, dark in between */
 .glass-card::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  padding: 1px; /* Border thickness */
+  padding: 1px;
   background: linear-gradient(
     135deg, 
-    rgba(255, 255, 255, 0.45) 0%,    /* Primary light: bright top-left */
-    rgba(255, 255, 255, 0.05) 35%,   /* Fade into darkness */
-    rgba(255, 255, 255, 0.0) 50%,    /* Pure dark middle */
-    rgba(255, 255, 255, 0.03) 65%,   /* Barely emerge */
-    rgba(255, 255, 255, 0.2) 100%   /* Reflected light: bottom-right */
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.05) 35%,
+    rgba(255, 255, 255, 0.0) 50%,
+    rgba(255, 255, 255, 0.03) 65%,
+    rgba(255, 255, 255, 0.2) 100%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -75,9 +70,8 @@
   pointer-events: none;
 }
 
-/* ── Specific 1-sided glass edge borders for Nav/Footer ── */
 .border-b-glass {
-  background: #0f172a; /* Slate-900 color matches old layout */
+  background: #0f172a;
   position: relative;
 }
 .border-b-glass::after {
@@ -98,7 +92,6 @@
   background: linear-gradient(90deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.2) 20%, rgba(255,255,255,0.2) 80%, rgba(255,255,255,0.0) 100%);
 }
 
-/* ── Glass Button for Draggable Nodes ── */
 .glass-button {
   background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(10px);
@@ -145,7 +138,6 @@
 
 .react-flow__minimap,
 .react-flow__controls {
-  /* Inherit the glass-card styles directly */
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%) !important;
   backdrop-filter: blur(40px) saturate(200%) !important;
   -webkit-backdrop-filter: blur(40px) saturate(200%) !important;

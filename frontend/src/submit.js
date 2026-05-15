@@ -53,7 +53,6 @@ export const SubmitButton = () => {
         </button>
       </div>
 
-      {/* Result Modal */}
       {(result || error) && (
         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black/60 z-[1000]">
           <div className="glass-card rounded-xl shadow-2xl p-6 w-80 max-w-full flex flex-col gap-4 transform transition-all animate-in fade-in zoom-in-95 duration-200">
