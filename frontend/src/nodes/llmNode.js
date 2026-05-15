@@ -1,6 +1,6 @@
 import { BaseNode } from './baseNode';
 
-export const LLMNode = ({ id, data }) => {
+export const LLMNode = ({ id }) => {
   return (
     <BaseNode
       id={id}
