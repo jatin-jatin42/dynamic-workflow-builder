@@ -12,7 +12,6 @@
   }
 }
 
-/* ── Shared node field styles (used via className in all node files) ── */
 @layer components {
   .node-field {
     @apply flex flex-col gap-1 w-full;
@@ -39,7 +38,6 @@
   }
 }
 
-/* ── React Flow third-party class overrides (cannot use Tailwind here) ── */
 .react-flow { background: #020617 !important; }
 
 .react-flow__minimap {
@@ -83,7 +81,6 @@
 .react-flow__handle-left { left: -5px !important; }
 .react-flow__handle-right { right: -5px !important; }
 
-/* Selected node glow ring */
 .react-flow__node.selected .base-node {
   border-color: #6366f1;
   box-shadow: 0 0 0 2px rgba(99,102,241,0.32), 0 4px 24px rgba(0,0,0,0.55);

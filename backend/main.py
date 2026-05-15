@@ -5,10 +5,9 @@ from typing import List, Dict, Any
 
 app = FastAPI()
 
-# Allow frontend to communicate with backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # In production, restrict this to frontend URL
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -27,16 +26,13 @@ def parse_pipeline(pipeline: Pipeline):
     num_nodes = len(pipeline.nodes)
     num_edges = len(pipeline.edges)
     
-    # Check if the graph is a DAG
     is_dag = True
     
-    # Create adjacency list
     adj_list = {node['id']: [] for node in pipeline.nodes}
     for edge in pipeline.edges:
         if edge['source'] in adj_list:
             adj_list[edge['source']].append(edge['target'])
             
-    # DFS to check for cycles
     visited = set()
     rec_stack = set()
     
