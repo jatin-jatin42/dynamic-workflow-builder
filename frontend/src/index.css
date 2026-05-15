@@ -1,13 +1,90 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-900 text-slate-200 antialiased overflow-hidden;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  }
+  #root {
+    @apply flex flex-col h-screen;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* ── Shared node field styles (used via className in all node files) ── */
+@layer components {
+  .node-field {
+    @apply flex flex-col gap-1 w-full;
+  }
+  .node-field span {
+    @apply text-[10px] font-semibold uppercase tracking-[0.07em] text-slate-500;
+  }
+  .node-field input,
+  .node-field select {
+    @apply w-full px-2 py-1 bg-slate-950 border border-slate-700 rounded
+           text-slate-200 text-xs outline-none appearance-none
+           transition-all duration-150;
+    font-family: inherit;
+  }
+  .node-field input:focus,
+  .node-field select:focus {
+    @apply border-indigo-500 ring-2 ring-indigo-500/20;
+  }
+  .node-field input::placeholder {
+    @apply text-slate-600;
+  }
+  .node-description {
+    @apply text-[11px] text-slate-500 italic;
+  }
+}
+
+/* ── React Flow third-party class overrides (cannot use Tailwind here) ── */
+.react-flow { background: #020617 !important; }
+
+.react-flow__minimap {
+  background: #0f172a !important;
+  border: 1px solid #334155 !important;
+  border-radius: 10px !important;
+}
+
+.react-flow__controls {
+  background: #0f172a !important;
+  border: 1px solid #334155 !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  overflow: hidden;
+}
+.react-flow__controls-button {
+  background: transparent !important;
+  border-color: #334155 !important;
+  fill: #94a3b8 !important;
+  transition: background 0.15s ease;
+}
+.react-flow__controls-button:hover {
+  background: #1e293b !important;
+  fill: #e2e8f0 !important;
+}
+
+.react-flow__edge-path { stroke: #6366f1 !important; stroke-opacity: 0.7; }
+
+.react-flow__handle {
+  width: 10px !important;
+  height: 10px !important;
+  background: #020617 !important;
+  border: 2px solid #6366f1 !important;
+  border-radius: 50% !important;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+.react-flow__handle:hover {
+  background: #6366f1 !important;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.32) !important;
+}
+.react-flow__handle-left { left: -5px !important; }
+.react-flow__handle-right { right: -5px !important; }
+
+/* Selected node glow ring */
+.react-flow__node.selected .base-node {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99,102,241,0.32), 0 4px 24px rgba(0,0,0,0.55);
 }

@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback } from 'react';
-import ReactFlow, { Controls, Background, MiniMap } from 'reactflow';
+import ReactFlow, { Controls, Background, MiniMap, BackgroundVariant } from 'reactflow';
 import { useStore } from './store';
 import { shallow } from 'zustand/shallow';
 import { InputNode } from './nodes/inputNode';
@@ -93,7 +93,7 @@ export const PipelineUI = () => {
 
     return (
         <>
-        <div ref={reactFlowWrapper} style={{width: '100wv', height: '70vh'}}>
+        <div ref={reactFlowWrapper} className="flex-1 relative">
             <ReactFlow
                 nodes={nodes}
                 edges={edges}
@@ -108,7 +108,7 @@ export const PipelineUI = () => {
                 snapGrid={[gridSize, gridSize]}
                 connectionLineType='smoothstep'
             >
-                <Background color="#aaa" gap={gridSize} />
+                <Background variant={BackgroundVariant.Dots} color="#252a42" gap={20} size={1} />
                 <Controls />
                 <MiniMap />
             </ReactFlow>
