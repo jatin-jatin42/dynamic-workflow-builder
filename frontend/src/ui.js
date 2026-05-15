@@ -110,7 +110,12 @@ export const PipelineUI = () => {
             >
                 <Background variant={BackgroundVariant.Dots} color="#252a42" gap={30} size={2} />
                 <Controls />
-                <MiniMap />
+                <MiniMap
+                  nodeColor="#6366f1"
+                  nodeStrokeColor="#818cf8"
+                  nodeStrokeWidth={2}
+                  maskColor="rgba(2,6,23,0.75)"
+                />
             </ReactFlow>
         </div>
         </>

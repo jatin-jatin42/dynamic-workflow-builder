@@ -3,9 +3,9 @@ import { Handle, Position } from 'reactflow';
 const handleTop = (index, total) => `${((index + 1) / (total + 1)) * 100}%`;
 
 export const BaseNode = ({ id, title, inputs = [], outputs = [], children }) => (
-  <div className="base-node min-w-[220px] bg-slate-800 border border-slate-700 rounded-xl
-                  shadow-[0_4px_24px_rgba(0,0,0,0.55)] overflow-hidden
-                  transition-all duration-150 hover:border-indigo-500/40">
+  <div className="base-node glass-card min-w-[220px] rounded-xl
+                  overflow-visible transition-all duration-200 ease-in-out
+                  hover:shadow-[0_8px_32px_rgba(99,102,241,0.18)]">
     {inputs.map((handle, i) => {
       const topPos = handleTop(i, inputs.length);
       return (
@@ -30,7 +30,7 @@ export const BaseNode = ({ id, title, inputs = [], outputs = [], children }) => 
       );
     })}
 
-    <div className="flex items-center px-3 py-2 bg-gradient-to-br from-indigo-500/20 to-indigo-500/5 border-b border-slate-700">
+    <div className="flex items-center px-3 py-2 bg-gradient-to-br from-indigo-500/20 to-indigo-500/5 border-b border-white/[0.05] rounded-t-xl">
       <span className="text-[10px] font-bold uppercase tracking-[0.1em] text-indigo-400">
         {title}
       </span>

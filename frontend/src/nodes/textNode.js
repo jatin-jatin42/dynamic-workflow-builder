@@ -56,8 +56,8 @@ export const TextNode = ({ id, data }) => {
           placeholder="Type text with {{ variables }}"
           className="nodrag nowheel px-2 py-1 bg-slate-950 border border-slate-700
                      rounded text-slate-200 text-xs outline-none
-                     transition-shadow duration-150 resize-none overflow-hidden
-                     focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20
+                     transition-all duration-200 ease-in-out resize-none overflow-hidden
+                     focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/50
                      placeholder:text-slate-600"
           style={{
             minWidth: '180px',

@@ -34,17 +34,13 @@ export const SubmitButton = () => {
 
   return (
     <>
-      <div className="flex items-center justify-center p-3 bg-slate-900 border-t border-slate-700 flex-shrink-0 relative">
+      <div className="border-t-glass flex items-center justify-center p-3 flex-shrink-0 z-10 relative">
         <button
           onClick={handleSubmit}
           disabled={loading}
-          className="px-9 py-2.5 bg-indigo-500 text-white text-sm font-semibold rounded-md
-                     tracking-wide cursor-pointer
-                     transition-all duration-150
-                     hover:bg-indigo-400 hover:-translate-y-px hover:shadow-[0_0_24px_rgba(99,102,241,0.32)]
-                     active:scale-[0.97]
-                     disabled:bg-slate-700 disabled:text-slate-500 disabled:cursor-not-allowed
-                     disabled:shadow-none disabled:translate-y-0 flex items-center gap-2"
+          className="inline-flex items-center justify-center rounded-full bg-gray-100/70 px-8 py-2.5 text-sm font-semibold text-black
+                     transition-transform duration-200 hover:scale-[1.02] hover:bg-white/90
+                     active:scale-95 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed gap-2"
           type="button"
         >
           {loading && (
@@ -60,7 +56,7 @@ export const SubmitButton = () => {
       {/* Result Modal */}
       {(result || error) && (
         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black/60 z-[1000]">
-          <div className="bg-slate-800 border border-slate-700 rounded-xl shadow-2xl p-6 w-80 max-w-full flex flex-col gap-4 transform transition-all animate-in fade-in zoom-in-95 duration-200">
+          <div className="glass-card rounded-xl shadow-2xl p-6 w-80 max-w-full flex flex-col gap-4 transform transition-all animate-in fade-in zoom-in-95 duration-200">
             <h3 className="text-lg font-bold text-white mb-2">Pipeline Analysis</h3>
             
             {error ? (
@@ -88,7 +84,8 @@ export const SubmitButton = () => {
             
             <button
               onClick={() => { setResult(null); setError(null); }}
-              className="mt-4 w-full py-2 bg-slate-700 hover:bg-slate-600 text-white rounded font-medium transition-colors"
+              className="mt-4 w-full py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-full font-medium
+                         transition-all duration-200 ease-in-out active:scale-95"
             >
               Close
             </button>

@@ -6,12 +6,11 @@ export const DraggableNode = ({ type, label }) => {
 
   return (
     <div
-      className="group flex items-center justify-center px-3 min-w-[70px] h-[34px]
-                 bg-slate-800 border border-slate-700 rounded-md
-                 cursor-grab select-none
-                 transition-all duration-150
-                 hover:bg-indigo-500/10 hover:border-indigo-500 hover:-translate-y-px hover:shadow-lg
-                 active:cursor-grabbing active:scale-[0.97]"
+      className="glass-button group flex items-center justify-center px-3 min-w-[70px] h-[34px]
+                 rounded-md cursor-grab select-none
+                 transition-all duration-200 ease-in-out
+                 hover:-translate-y-px hover:shadow-lg
+                 active:cursor-grabbing active:scale-95"
       onDragStart={(event) => onDragStart(event, type)}
       draggable
     >

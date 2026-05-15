@@ -1,9 +1,9 @@
 import { DraggableNode } from './draggableNode';
 
 export const PipelineToolbar = () => (
-  <div className="flex items-center gap-4 px-5 h-[60px] bg-slate-900 border-b border-slate-700 flex-shrink-0">
-    <div className="flex items-center gap-2 pr-5 border-r border-slate-700 flex-shrink-0">
-      <span className="text-sm font-bold text-slate-100 tracking-tight whitespace-nowrap">
+  <div className="border-b-glass flex items-center gap-4 px-5 h-[60px] flex-shrink-0 z-10 relative">
+    <div className="flex items-center gap-2 pr-5 border-r border-white/[0.05] flex-shrink-0">
+      <span className="text-base font-semibold text-white/90 tracking-normal whitespace-nowrap">
         Pipeline Builder
       </span>
     </div>
